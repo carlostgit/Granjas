@@ -1,0 +1,64 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://grass.png" type="Texture" id=1]
+[ext_resource path="res://Sprite_land.gd" type="Script" id=2]
+[ext_resource path="res://house.png" type="Texture" id=3]
+[ext_resource path="res://Sprite_house.gd" type="Script" id=4]
+
+[node name="Sprite_land" type="Sprite"]
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Label_owner" type="Label" parent="."]
+margin_left = 24.0
+margin_top = -23.0
+margin_right = 73.0
+margin_bottom = -5.0
+
+[node name="Label_productivities" type="Label" parent="."]
+margin_left = 99.6137
+margin_top = -23.46
+margin_right = 175.614
+margin_bottom = 26.54
+
+[node name="Label_incomes" type="Label" parent="."]
+margin_left = 195.0
+margin_top = -27.0
+margin_right = 248.0
+margin_bottom = 24.0
+
+[node name="Label_currentRent" type="Label" parent="."]
+margin_left = 277.487
+margin_top = -24.7174
+margin_right = 317.487
+margin_bottom = -10.7174
+
+[node name="Sprite_house" type="Sprite" parent="."]
+editor/display_folded = true
+position = Vector2( -12.3869, 11.1312 )
+scale = Vector2( 0.127442, 0.112944 )
+texture = ExtResource( 3 )
+script = ExtResource( 4 )
+
+[node name="Label_farmerInTheHouse" type="Label" parent="Sprite_house"]
+margin_left = -89.0
+margin_top = 127.0
+margin_right = -21.0
+margin_bottom = 142.0
+rect_scale = Vector2( 10, 10 )
+text = "Prueba"
+
+[node name="Label_houseCurrentRent" type="Label" parent="Sprite_house"]
+margin_left = -71.8484
+margin_top = 278.885
+margin_right = -31.8484
+margin_bottom = 292.885
+rect_scale = Vector2( 10, 10 )
+
+[node name="Button_tryToIncreaseRent" type="Button" parent="."]
+margin_left = 396.844
+margin_top = -26.7044
+margin_right = 532.844
+margin_bottom = -6.70435
+text = "Try to increase rent"
+[connection signal="pressed" from="Button_tryToIncreaseRent" to="." method="_on_Button_tryToIncreaseRent_pressed"]

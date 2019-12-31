@@ -1,0 +1,47 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "Node",
+"class": "Node_Main",
+"language": "GDScript",
+"path": "res://Node_Main.gd"
+}, {
+"base": "Sprite",
+"class": "Sprite_farmer",
+"language": "GDScript",
+"path": "res://Sprite_farmer.gd"
+}, {
+"base": "Sprite",
+"class": "Sprite_house",
+"language": "GDScript",
+"path": "res://Sprite_house.gd"
+}, {
+"base": "Sprite",
+"class": "Sprite_land",
+"language": "GDScript",
+"path": "res://Sprite_land.gd"
+} ]
+_global_script_class_icons={
+"Node_Main": "",
+"Sprite_farmer": "",
+"Sprite_house": "",
+"Sprite_land": ""
+}
+
+[application]
+
+config/name="Pruebas"
+run/main_scene="res://Node_Main.tscn"
+config/icon="res://icon.png"
+
+[rendering]
+
+environment/default_environment="res://default_env.tres"
