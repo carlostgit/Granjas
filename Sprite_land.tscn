@@ -34,7 +34,6 @@ margin_right = 317.487
 margin_bottom = -10.7174
 
 [node name="Sprite_house" type="Sprite" parent="."]
-editor/display_folded = true
 position = Vector2( -12.3869, 11.1312 )
 scale = Vector2( 0.127442, 0.112944 )
 texture = ExtResource( 3 )
@@ -43,17 +42,33 @@ script = ExtResource( 4 )
 [node name="Label_farmerInTheHouse" type="Label" parent="Sprite_house"]
 margin_left = -89.0
 margin_top = 127.0
-margin_right = -21.0
+margin_right = -28.0
 margin_bottom = 142.0
-rect_scale = Vector2( 10, 10 )
+rect_scale = Vector2( 7, 7 )
 text = "Prueba"
 
 [node name="Label_houseCurrentRent" type="Label" parent="Sprite_house"]
-margin_left = -71.8484
-margin_top = 278.885
-margin_right = -31.8484
-margin_bottom = 292.885
-rect_scale = Vector2( 10, 10 )
+margin_left = -65.1208
+margin_top = 218.156
+margin_right = -25.1208
+margin_bottom = 232.156
+rect_scale = Vector2( 7, 7 )
+
+[node name="Button_tryToIncreaseHouseRent" type="Button" parent="Sprite_house"]
+margin_left = 3216.0
+margin_top = -111.0
+margin_right = 3396.0
+margin_bottom = -80.0
+rect_scale = Vector2( 6, 6 )
+text = "Try to increase house rent"
+
+[node name="Button_decreaseHouseRent" type="Button" parent="Sprite_house"]
+margin_left = 4382.97
+margin_top = -92.0902
+margin_right = 4558.97
+margin_bottom = -63.0902
+rect_scale = Vector2( 6, 6 )
+text = "Decrease house rent"
 
 [node name="Button_tryToIncreaseRent" type="Button" parent="."]
 margin_left = 396.844
@@ -61,4 +76,14 @@ margin_top = -26.7044
 margin_right = 532.844
 margin_bottom = -6.70435
 text = "Try to increase rent"
+
+[node name="Button_decreaseRent" type="Button" parent="."]
+margin_left = 548.0
+margin_top = -26.0
+margin_right = 680.0
+margin_bottom = -6.0
+text = "Decrease rent"
+[connection signal="pressed" from="Sprite_house/Button_tryToIncreaseHouseRent" to="Sprite_house" method="_on_Button_tryToIncreaseHouseRent_pressed"]
+[connection signal="pressed" from="Sprite_house/Button_decreaseHouseRent" to="Sprite_house" method="_on_Button_decreaseHouseRent_pressed"]
 [connection signal="pressed" from="Button_tryToIncreaseRent" to="." method="_on_Button_tryToIncreaseRent_pressed"]
+[connection signal="pressed" from="Button_decreaseRent" to="." method="_on_Button_decreaseRent_pressed"]

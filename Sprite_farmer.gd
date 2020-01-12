@@ -193,7 +193,8 @@ func get_current_income() -> float:
 
 func set_current_income(current_income_arg: float) -> void:
 	self._current_income = current_income_arg
-	$Label_currentIncome.text = str(current_income_arg)
+	#$Label_currentIncome.text = str(current_income_arg)
+
 
 
 func set_node_main_ref(node_main_ref_arg: Node_Main) -> void:
@@ -323,3 +324,11 @@ func _on_Button_bid_pressed():
 			house_with_max_income.set_current_rent(new_rent)
 	
 	emit_signal("bid_made")
+
+func update_texts() -> void:
+	$Label_currentIncome.text = str(self._current_income)
+	var expenses_from_commuting = 0
+	if null != self._workplace and null != self._living_place:
+		expenses_from_commuting = calculate_expenses_from_commuting(self._workplace,self._living_place)
+		
+	$Label_commutExpenses.text = str(expenses_from_commuting)

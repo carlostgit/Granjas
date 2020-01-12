@@ -150,6 +150,7 @@ func remove_farmer_from_all_houses(farmer: Sprite) -> void:
 
 func _on_Button_calculate_pressed():
 	calculate_incomes()
+	update_texts()
 
 func calculate_incomes() -> void:
 	for farmer in _farmers:
@@ -161,6 +162,7 @@ func calculate_incomes() -> void:
 
 func _on_Button_reset_pressed():
 	reset()
+	update_texts()
 
 
 func get_lands() -> Array:
@@ -168,7 +170,7 @@ func get_lands() -> Array:
 
 
 func get_houses() -> Array:
-	var houses: Array
+	var houses: Array = [] #Si no la inicializo a [], el array no se resetea, y va aumentando el tamaño son parar
 	for land in _lands:
 		var house_of_the_land: Sprite = land.get_house()
 		if null != house_of_the_land:
@@ -200,13 +202,16 @@ func reset() -> void:
 	for house in get_houses():
 		house.reset()
 		
+	
+		
 		
 func on_Sprite_farmer_bid_done() -> void:
 	print ("on_Sprite_farmer_bid_done() called")
 	calculate_incomes()
+	update_texts()
 	
 	
-func is_a_different_land_with_better_income(this_land: Sprite, decreased_income_for_this_land: float) -> bool:
+func is_a_different_land_or_house_with_better_income(this_land: Sprite, decreased_income_for_this_land: float) -> bool:
 	#print ("todo is_a_different_land_with_better_income called")
 	#print ("debug this method")
 	var farmer_in_this_land: Sprite = this_land.get_farmer_in_the_land()
@@ -217,3 +222,11 @@ func is_a_different_land_with_better_income(this_land: Sprite, decreased_income_
 				if alternative_income > decreased_income_for_this_land:
 					return true;
 	return false;
+	
+func update_texts() -> void:
+	for farmer in _farmers:
+		farmer.update_texts()
+	for land in _lands:
+		land.update_texts()
+	for house in get_houses():
+		house.update_texts()

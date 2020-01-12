@@ -111,7 +111,7 @@ func calculate_income_for_farmer(farmer: Sprite_farmer) -> float:
 
 func set_current_rent(current_rent_arg: float) -> void:
 	_current_rent = current_rent_arg
-	$Label_currentRent.text = "Current Rent: " + str(current_rent_arg)
+	#$Label_currentRent.text = "Land-Rent: " + str(current_rent_arg)
 	
 	
 func get_current_rent() -> float:
@@ -139,15 +139,13 @@ func draw_incomes() -> void:
 	for textLine in textOfIncomes:
 		completeText += textLine + "\n"
 	$Label_incomes.text = completeText
-	
-	
-	
+
 
 func _on_Button_tryToIncreaseRent_pressed():
 	#todo
 	#solo hace algo si ya tiene un propietario
 	#la idea es subirle la renta, y ver si se largaría con la nueva renta
-	if (_farmer_in_the_land):
+	if (_farmer_in_the_land and _owner_farmer != _farmer_in_the_land):
 		var current_rent_for_this_land: float = _current_rent;
 		var param_increase_amount: float = 0.1;
 		var increased_rent_for_this_land: float = current_rent_for_this_land + param_increase_amount;
@@ -165,13 +163,31 @@ func _on_Button_tryToIncreaseRent_pressed():
 			return # si la renta del inquilino va a estar por debajo de 0, está claro que no puede pagar mas
 		else:
 			#veamos si el inquilino se largaría a otro lugar
-			if(false == _node_main_ref.is_a_different_land_with_better_income(this_land, decreased_income_of_farmer)):
-				_current_rent = increased_rent_for_this_land
+			if(false == _node_main_ref.is_a_different_land_or_house_with_better_income(this_land, decreased_income_of_farmer)):
+				set_current_rent(increased_rent_for_this_land)
+				_node_main_ref.calculate_incomes()
+				_node_main_ref.update_texts()
 				return
 			else:
 				return
-
+		
 
 func set_node_main_ref(node_main_ref_arg: Node_Main) -> void:
 	_node_main_ref = node_main_ref_arg
+	
+func get_node_main_ref() -> Node_Main:
+	return _node_main_ref
+	
+func update_texts() -> void:
+	draw_incomes()
+	$Label_currentRent.text = "Land-Rent: " + str(self._current_rent)
 
+
+func _on_Button_decreaseRent_pressed():
+	var current_rent_for_this_land: float = _current_rent;
+	var param_decrease_amount: float = 0.1;
+	var decreased_rent_for_this_land: float = current_rent_for_this_land - param_decrease_amount;
+	if decreased_rent_for_this_land>0:
+		set_current_rent(decreased_rent_for_this_land)
+		_node_main_ref.calculate_incomes()
+		_node_main_ref.update_texts()

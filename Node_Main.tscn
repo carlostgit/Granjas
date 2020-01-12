@@ -29,9 +29,6 @@ margin_left = 160.0
 margin_top = 347.0
 margin_right = 706.0
 margin_bottom = 416.0
-text = "Falta hacer que los propietarios vayan probando a subir los alquileres de tierras y casas, para mirar si con el aumento ganan más.
-Debugear el método is_a_different_land_with_better_income
-Comprobar que no estoy haciendo cálculos de más.
-Falta debugear cosas raras que pasan cuando le doy al reset y repito la prueba"
+text = "Falta debugear cosas raras que pasan cuando le doy al reset y repito la prueba"
 [connection signal="pressed" from="Button_calculate" to="." method="_on_Button_calculate_pressed"]
 [connection signal="pressed" from="Button_reset" to="." method="_on_Button_reset_pressed"]

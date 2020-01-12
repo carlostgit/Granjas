@@ -16,31 +16,19 @@ margin_bottom = -12.6155
 size_flags_stretch_ratio = 1.2
 text = "Pepe"
 
-[node name="Label_minIncome" type="Label" parent="."]
-margin_left = 43.4477
-margin_top = -9.18144
-margin_right = 83.4477
-margin_bottom = 4.81856
-text = "24"
-
 [node name="Label_currentIncome" type="Label" parent="."]
-margin_left = 64.2743
-margin_top = 5.688
-margin_right = 104.274
-margin_bottom = 19.688
-
-[node name="Label_1" type="Label" parent="."]
-margin_left = 12.0
-margin_top = -10.0
-margin_right = 24.0
-margin_bottom = 6.0
-text = "Min:"
+margin_left = 58.3304
+margin_top = 7.84944
+margin_right = 98.3301
+margin_bottom = 21.8494
+rect_scale = Vector2( 0.8, 0.8 )
 
 [node name="Label_2" type="Label" parent="."]
 margin_left = 14.0
 margin_top = 5.0
 margin_right = 31.0
 margin_bottom = 19.0
+rect_scale = Vector2( 0.8, 0.8 )
 text = "CurrInc:"
 
 [node name="Button_bid" type="Button" parent="."]
@@ -49,4 +37,19 @@ margin_top = 10.3981
 margin_right = 12.5956
 margin_bottom = 30.3981
 text = "Bid"
+
+[node name="Label_commutExpenses" type="Label" parent="."]
+margin_left = 75.6502
+margin_top = 16.2107
+margin_right = 115.65
+margin_bottom = 30.2107
+rect_scale = Vector2( 0.8, 0.8 )
+
+[node name="Label_3" type="Label" parent="."]
+margin_left = 13.5089
+margin_top = 16.7511
+margin_right = 89.5089
+margin_bottom = 30.7511
+rect_scale = Vector2( 0.8, 0.8 )
+text = "Comm. Exp:"
 [connection signal="pressed" from="Button_bid" to="." method="_on_Button_bid_pressed"]
